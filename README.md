@@ -75,7 +75,7 @@ I could not find this in the indexed documents.
 ```python
 from ragforge import RAGPipeline
 
-rag = RAGPipeline("data/index.db")             # persistent; RAGPipeline() keeps everything in memory
+rag = RAGPipeline("data/index.db")  # persistent; RAGPipeline() keeps everything in memory
 rag.ingest("contract.pdf")
 answer = rag.ask("What is the notice period?")
 print(answer.answer)
@@ -91,7 +91,7 @@ from ragforge.retrieval import CrossEncoderReranker
 
 rag = RAGPipeline(
     "data/index.db",
-    embedder=FastEmbedEmbedder(),                                          # pip install 'ragforge[fastembed]'
+    embedder=FastEmbedEmbedder(),  # pip install 'ragforge[fastembed]'
     reranker=CrossEncoderReranker(),
     llm=OpenAICompatibleLLM(model="llama3.1", base_url="http://localhost:11434/v1"),
     glossary={"PO": "purchase order"},

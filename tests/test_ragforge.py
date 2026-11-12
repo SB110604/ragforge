@@ -94,7 +94,7 @@ def test_load_markdown_pdf_html_and_errors(corpus, tmp_path):
     pdf = load_document(corpus / "warranty.pdf")
     assert [p.number for p in pdf.pages] == [1, 2] and "two year warranty" in pdf.pages[1].text
     (tmp_path / "x.html").write_text(
-        "<html><head><title>Hi</title><script>evil()</script></head>" "<body><p>Hello &amp; welcome</p></body></html>",
+        "<html><head><title>Hi</title><script>evil()</script></head><body><p>Hello &amp; welcome</p></body></html>",
         encoding="utf-8",
     )
     h = load_document(tmp_path / "x.html")
@@ -108,7 +108,7 @@ def test_load_markdown_pdf_html_and_errors(corpus, tmp_path):
 
 def test_mermaid_blocks_become_text(tmp_path):
     (tmp_path / "d.md").write_text(
-        "# D\n\n```mermaid\nflowchart LR\n  A[Stock<br/>monitor] --> B{{Decide}}\n" "  X->>Y: send PO e-mail\n```\n",
+        "# D\n\n```mermaid\nflowchart LR\n  A[Stock<br/>monitor] --> B{{Decide}}\n  X->>Y: send PO e-mail\n```\n",
         encoding="utf-8",
     )
     text = load_document(tmp_path / "d.md").text
