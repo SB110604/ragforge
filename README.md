@@ -91,7 +91,7 @@ from ragforge.retrieval import CrossEncoderReranker
 
 rag = RAGPipeline(
     "data/index.db",
-    embedder=FastEmbedEmbedder(),  # pip install 'ragforge[fastembed]'
+    embedder=FastEmbedEmbedder(),  # pip install 'ragforge-ai[fastembed]'
     reranker=CrossEncoderReranker(),
     llm=OpenAICompatibleLLM(model="llama3.1", base_url="http://localhost:11434/v1"),
     glossary={"PO": "purchase order"},

@@ -126,13 +126,13 @@ class OverlapReranker:
 
 
 class CrossEncoderReranker:
-    """Neural cross-encoder via fastembed (``pip install ragforge[fastembed]``)."""
+    """Neural cross-encoder via fastembed (``pip install ragforge-ai[fastembed]``)."""
 
     def __init__(self, model: str = "Xenova/ms-marco-MiniLM-L-6-v2") -> None:
         try:
             from fastembed.rerank.cross_encoder import TextCrossEncoder
         except ImportError as e:  # pragma: no cover - optional dependency
-            raise ImportError("install the extra: pip install 'ragforge[fastembed]'") from e
+            raise ImportError("install the extra: pip install 'ragforge-ai[fastembed]'") from e
         self._model = TextCrossEncoder(model_name=model)
 
     def rerank(self, question: str, hits: list[Hit]) -> list[Hit]:  # pragma: no cover - needs model download

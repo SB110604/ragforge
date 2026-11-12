@@ -3,7 +3,7 @@ requires = ["hatchling>=1.25"]
 build-backend = "hatchling.build"
 
 [project]
-name = "ragforge"
+name = "ragforge-ai"
 version = "0.1.0"
 description = "Hybrid-search RAG for PDFs and documents: semantic chunking, BM25 + vector retrieval, reranking, query rewriting, cited answers and an evaluation pipeline. Works offline; LLMs optional."
 readme = "README.md"

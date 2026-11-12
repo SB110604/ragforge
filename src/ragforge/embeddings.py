@@ -1,7 +1,7 @@
 """Embedding back-ends. All return L2-normalised float32 matrices.
 
 * :class:`HashingEmbedder` — offline default; lexical (word + character n-grams), no model download.
-* :class:`FastEmbedEmbedder` — real semantic embeddings via ONNX (``pip install ragforge[fastembed]``), no GPU/torch.
+* :class:`FastEmbedEmbedder` — real semantic embeddings via ONNX (``pip install ragforge-ai[fastembed]``), no GPU/torch.
 * :class:`OpenAICompatibleEmbedder` — any ``/embeddings`` endpoint (OpenAI, Ollama, vLLM, ...).
 """
 
@@ -51,7 +51,7 @@ class FastEmbedEmbedder:
         try:
             from fastembed import TextEmbedding
         except ImportError as e:  # pragma: no cover - optional dependency
-            raise ImportError("install the extra: pip install 'ragforge[fastembed]'") from e
+            raise ImportError("install the extra: pip install 'ragforge-ai[fastembed]'") from e
         self._model = TextEmbedding(model_name=model)
         self.name = f"fastembed:{model}"
         self.dim = int(self.embed(["dimension probe"]).shape[1])
