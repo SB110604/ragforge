@@ -1,0 +1,12 @@
+{"question": "How long are one-click approval tokens valid?", "evidence": "expire after 48 h", "source": "architecture.md"}
+{"question": "Which batch is used when a sale is completed?", "evidence": "earliest-expiry batch is used automatically", "source": "user-guide.md"}
+{"question": "At what time does the agent pipeline run every day?", "evidence": "pipeline 06:00", "source": "architecture.md"}
+{"question": "How is the learned correction factor calculated?", "evidence": "correction factor is an EMA", "source": "architecture.md"}
+{"question": "What is the price tolerance in the three-way match?", "evidence": "price 2 %", "source": "architecture.md"}
+{"question": "Who has to approve purchase requests above 50,000 rupees?", "evidence": "need the admin after the manager", "source": "user-guide.md"}
+{"question": "Which port does the private PostgreSQL cluster use?", "evidence": "port 5433", "source": "setup-guide.pdf"}
+{"question": "Where can I see the e-mails that the system sends?", "evidence": "8025"}
+{"question": "Which model is used to detect anomalies?", "evidence": "IsolationForest", "source": "architecture.md"}
+{"question": "What alert is raised when forecast accuracy drifts?", "evidence": "forecast_drift", "source": "architecture.md"}
+{"question": "What is the capital of Australia?", "answerable": false}
+{"question": "How do I configure Kubernetes horizontal pod autoscaling?", "answerable": false}

@@ -1,0 +1,46 @@
+[build-system]
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
+
+[project]
+name = "ragforge"
+version = "0.1.0"
+description = "Hybrid-search RAG for PDFs and documents: semantic chunking, BM25 + vector retrieval, reranking, query rewriting, cited answers and an evaluation pipeline. Works offline; LLMs optional."
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.10"
+authors = [{ name = "Sahil Bodke" }]
+keywords = ["rag", "retrieval-augmented-generation", "hybrid-search", "bm25", "vector-search", "llm", "pdf", "semantic-chunking", "reranking", "fastapi"]
+classifiers = ["Programming Language :: Python :: 3", "License :: OSI Approved :: MIT License", "Framework :: FastAPI",
+               "Topic :: Scientific/Engineering :: Artificial Intelligence", "Topic :: Text Processing :: Indexing"]
+dependencies = ["numpy>=1.26", "scikit-learn>=1.4", "pypdf>=4.0", "httpx>=0.27"]
+
+[project.optional-dependencies]
+api = ["fastapi>=0.110", "uvicorn>=0.29", "python-multipart>=0.0.9"]
+fastembed = ["fastembed>=0.5"]
+dev = ["fastapi>=0.110", "uvicorn>=0.29", "python-multipart>=0.0.9", "reportlab>=4.0", "pytest>=8", "pytest-cov>=5", "ruff>=0.6"]
+
+[project.scripts]
+ragforge = "ragforge.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/SB110604/ragforge"
+Issues = "https://github.com/SB110604/ragforge/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/ragforge"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+[tool.coverage.run]
+source = ["ragforge"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP"]
+ignore = ["B008"]
